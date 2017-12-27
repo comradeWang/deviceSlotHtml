@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link rel="stylesheet" href="uikit/css/uikit.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+<button id="index-btn" type="button" onclick="getOneLevelSlotState()">时隙信息图1</button>
+<button id="index-btn-2" type="button" onclick="clickModal2()">时隙链路图psodf-wss1</button>
+
+<!--时隙信息图1 开始-->
+<!--<div class="slot-modal-container uk-flex uk-flex-center ">
+    <div class="slot-left-panel ">
+        <div>端口：<span class="slot-port-number">45</span></div>
+        <div class="slot-name">一级时隙</div>
+        <div class="slot-port-container"></div>
+        <div class="slot-color-detail uk-child-width-expand@s" uk-grid style="width: 35vw;margin: 0">
+            <div class="slot-color-container uk-width-1-3">
+                <span class="slot-color-block vc_64c"></span>
+                <span class="slot-color-name">VC_64C</span>
+            </div>
+            <div class="slot-color-container uk-width-1-3">
+                <span class="slot-color-block vc_16c"></span>
+                <span class="slot-color-name">VC_16C</span>
+            </div>
+            <div class="slot-color-container uk-width-1-3">
+                <span class="slot-color-block vc_4c"></span>
+                <span class="slot-color-name">VC_4C</span>
+            </div>
+            <div class="slot-color-container uk-width-1-3">
+                <span class="slot-color-block au_4"></span>
+                <span class="slot-color-name">AU_4</span>
+            </div>
+            <div class="slot-color-container uk-width-1-2">
+                <span class="slot-color-block low_order_cross"></span>
+                <span class="slot-color-name">含低阶交叉的VC_4</span>
+            </div>
+            <div class="slot-color-container uk-width-1-3">
+                <span class="slot-color-block no_cross"></span>
+                <span class="slot-color-name">无交叉</span>
+            </div>
+        </div>
+    </div>
+    <div class="slot-right-panel">
+        <div>VC-4:MM</div>
+        <div class="slot-name">二级时隙</div>
+        <div class="slot-port-two-container">
+        </div>
+        <div class="slot-color-detail uk-child-width-expand@s" uk-grid style="width: 35vw;margin: 0">
+            <div class="slot-color-container uk-width-1-3">
+                <span class="slot-color-block vc_12"></span>
+                <span class="slot-color-name">VC_12</span>
+            </div>
+            <div class="slot-color-container uk-width-1-3">
+                <span class="slot-color-block no_cross"></span>
+                <span class="slot-color-name">无交叉</span>
+            </div>
+        </div>
+    </div>
+</div>-->
+<!-- This is the modal -->
+<div id="modal-container"  class="uk-modal-container" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body ">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <h2 class="uk-modal-title">Headline</h2>
+        <div class="slot-modal-container uk-flex uk-flex-center ">
+            <div class="slot-left-panel ">
+                <div>端口：<span class="slot-port-number">45</span></div>
+                <div class="slot-name">一级时隙</div>
+                <div class="slot-port-container"></div>
+                <div class="slot-color-detail uk-child-width-expand@s" uk-grid style="width: 35vw;margin: 0">
+                    <div class="slot-color-container uk-width-1-3">
+                        <span class="slot-color-block vc_64c"></span>
+                        <span class="slot-color-name">VC_64C</span>
+                    </div>
+                    <div class="slot-color-container uk-width-1-3">
+                        <span class="slot-color-block vc_16c"></span>
+                        <span class="slot-color-name">VC_16C</span>
+                    </div>
+                    <div class="slot-color-container uk-width-1-3">
+                        <span class="slot-color-block vc_4c"></span>
+                        <span class="slot-color-name">VC_4C</span>
+                    </div>
+                    <div class="slot-color-container uk-width-1-3">
+                        <span class="slot-color-block au_4"></span>
+                        <span class="slot-color-name">AU_4</span>
+                    </div>
+                    <div class="slot-color-container uk-width-1-2">
+                        <span class="slot-color-block low_order_cross"></span>
+                        <span class="slot-color-name">含低阶交叉的VC_4</span>
+                    </div>
+                    <div class="slot-color-container uk-width-1-3">
+                        <span class="slot-color-block no_cross"></span>
+                        <span class="slot-color-name">无交叉</span>
+                    </div>
+                </div>
+            </div>
+            <div class="slot-right-panel">
+                <div>VC-4:MM</div>
+                <div class="slot-name">二级时隙</div>
+                <div class="slot-port-two-container">
+                </div>
+                <div class="slot-color-detail uk-child-width-expand@s" uk-grid style="width: 35vw;margin: 0">
+                    <div class="slot-color-container uk-width-1-3">
+                        <span class="slot-color-block vc_12"></span>
+                        <span class="slot-color-name">VC_12</span>
+                    </div>
+                    <div class="slot-color-container uk-width-1-3">
+                        <span class="slot-color-block no_cross"></span>
+                        <span class="slot-color-name">无交叉</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--时隙信息图1 结束-->
+
+<!--时隙链路图psodf-wss1 开始-->
+<div id="modal-2"  class="uk-modal-container" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body ">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <h2 class="uk-modal-title">Headline</h2>
+        <div class="slot-modal-container " uk-grid>
+            <div class="slot-left-panel uk-width-1-2">
+                <div>设备1</div>
+                <div class="slot-name">PCODF-192*192-01</div>
+                <div class="slot-pcodf-container">
+                    <div class="slot-pcodf-input uk-flex uk-flex-around">
+                        <!--                <div class="slot-pcodf-column">
+                                            <div class="slot-pcodf-port-container">
+                                                <div class="slot-pcodf-port"></div>
+                                                <div class="slot-pcodf-port"></div>
+                                                <div class="slot-pcodf-port"></div>
+                                                <div class="slot-pcodf-port"></div>
+                                            </div>
+                                            <div class="slot-pcodf-port-container">
+                                                <div class="slot-pcodf-port"></div>
+                                                <div class="slot-pcodf-port"></div>
+                                                <div class="slot-pcodf-port"></div>
+                                                <div class="slot-pcodf-port"></div>
+                                            </div>
+                                            <div class="slot-pcodf-port-container">
+                                            </div>
+                                        </div>
+                                        <div class="slot-pcodf-column">
+                                        </div>
+                                        <div class="slot-pcodf-column"></div>-->
+
+                    </div>
+                    <div class="slot-pcodf-output uk-flex uk-flex-around"></div>
+                </div>
+            </div>
+            <div class="slot-right-panel uk-width-1-2">
+                <div>设备2</div>
+                <div class="slot-name">WSS-01</div>
+                <div class="slot-wss-container uk-flex uk-flex-around">
+                    <div class="slot-wss-input uk-flex uk-flex-column uk-flex-center uk-flex-middle">
+                        <div class="slot-wss-input-port"></div>
+                        <div>COM</div>
+                    </div>
+                    <div class="slot-wss-output">
+                    </div>
+                </div>
+
+            </div>
+            <div class="uk-width-1-2"></div>
+            <div class="slot-pw-explain-container uk-width-1-2 uk-push-1-2 uk-flex uk-flex-around">
+                <div class="slot-pw-explain-block">
+                    <span class="slot-pw-explain-color slot-input-color"></span>
+                    <span class="slot-pw-explain-text">输入区</span>
+                </div>
+                <div class="slot-pw-explain-block">
+                    <span class="slot-pw-explain-color slot-output-color"></span>
+                    <span class="slot-pw-explain-text">输出区</span>
+                </div>
+                <div class="slot-pw-explain-block">
+                    <span class="slot-pw-explain-color input-port-active"></span>
+                    <span class="slot-pw-explain-text">输入端口</span>
+                </div>
+                <div class="slot-pw-explain-block">
+                    <span class="slot-pw-explain-color output-port-active"></span>
+                    <span class="slot-pw-explain-text">输出端口</span>
+                </div>
+            </div>
+            <div class="uk-width-1-2">
+                <div>设备名称：<span>PCODF-192*192-01</span></div>
+                <div>所属机房：<span class="slot-pcodf-computerRoom">机房1</span></div>
+                <div>设备SSID：<span class="slot-pcodf-ssid">356</span></div>
+                <div>NEXT设备：<span>WSS-01</span></div>
+            </div>
+            <div class="uk-width-1-2">
+                <div>设备名称：<span>WSS-01</span></div>
+                <div>所属机房：<span class="slot-wss-computerRoom">机房1</span></div>
+                <div>设备SSID：<span class="slot-wss-ssid">356066053</span></div>
+                <div>NEXT设备：<span>无</span></div>
+            </div>
+            <div class="uk-width-1-2">
+                <table class="uk-table uk-table-striped">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>输入端口</th>
+                        <th>输出端口</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th>端口号</th>
+                        <td>002</td>
+                        <td>014</td>
+                    </tr>
+                    <tr>
+                        <td>是否有光</td>
+                        <td>是</td>
+                        <td>是</td>
+                    </tr>
+                    <tr>
+                        <td>光功率</td>
+                        <td>-10dBm</td>
+                        <td>-10dBm</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="uk-width-1-2">
+                <table class="uk-table uk-table-striped">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>输入端口</th>
+                        <th>输出端口</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th>端口号</th>
+                        <td>002</td>
+                        <td>014</td>
+                    </tr>
+                    <tr>
+                        <td>是否有光</td>
+                        <td>是</td>
+                        <td>是</td>
+                    </tr>
+                    <tr>
+                        <td>光功率</td>
+                        <td>-10dBm</td>
+                        <td>-10dBm</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!--时隙链路图psodf-wss1 结束-->
+
+<!--时隙链路图wss-色散补偿设备 开始-->
+<div class="slot-modal-container " uk-grid>
+    <div class="uk-width-1-2">
+        <div>设备1</div>
+        <div class="slot-name">WSS-01</div>
+        <div class="slot-wss-container uk-flex uk-flex-around">
+            <div class="slot-wss-output">
+            </div>
+            <div class="slot-wss-input uk-flex uk-flex-column uk-flex-center uk-flex-middle">
+                <div class="slot-wss-input-port"></div>
+                <div>COM</div>
+            </div>
+        </div>
+    </div>
+    <div class="uk-width-1-2">
+        <div>设备2</div>
+        <div class="slot-name">色散补偿设备-01</div>
+        <div class="slot-tdcm-container uk-flex uk-flex-around uk-flex-middle">
+            <div class="slot-tdcm-io-container uk-flex uk-flex-middle uk-flex-center">
+                <div>
+                    <div class="slot-tdcm-text">IN1</div>
+                    <div class="slot-tdcm-input-port"></div>
+                </div>
+                <div>
+                    <div class="slot-tdcm-text">OUT1</div>
+                    <div class="slot-tdcm-output-port"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="uk-width-1-2"></div>
+    <div class="slot-pw-explain-container uk-width-1-2 uk-push-1-2 uk-flex uk-flex-around">
+        <div class="slot-pw-explain-block">
+            <span class="slot-pw-explain-color slot-input-color"></span>
+            <span class="slot-pw-explain-text">输入区</span>
+        </div>
+        <div class="slot-pw-explain-block">
+            <span class="slot-pw-explain-color slot-output-color"></span>
+            <span class="slot-pw-explain-text">输出区</span>
+        </div>
+        <div class="slot-pw-explain-block">
+            <span class="slot-pw-explain-color input-port-active"></span>
+            <span class="slot-pw-explain-text">输入端口</span>
+        </div>
+        <div class="slot-pw-explain-block">
+            <span class="slot-pw-explain-color output-port-active"></span>
+            <span class="slot-pw-explain-text">输出端口</span>
+        </div>
+    </div>
+    <div class="uk-width-1-2">
+        <div>设备名称：<span>WSS-01</span></div>
+        <div>所属机房：<span class="slot-wss-computerRoom">机房1</span></div>
+        <div>设备SSID：<span class="slot-wss-ssid">356066053</span></div>
+        <div>NEXT设备：<span>色散补偿设备-01</span></div>
+        <table class="uk-table uk-table-striped">
+            <thead>
+            <tr>
+                <th></th>
+                <th>输入端口</th>
+                <th>输出端口</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th>端口号</th>
+                <td>002</td>
+                <td>014</td>
+            </tr>
+            <tr>
+                <th>是否有光</th>
+                <td>是</td>
+                <td>是</td>
+            </tr>
+            <tr>
+                <th>光功率</th>
+                <td>-10dBm</td>
+                <td>-10dBm</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="uk-width-1-2">
+        <div>设备名称：<span>WSS-01</span></div>
+        <div>所属机房：<span class="slot-wss-computerRoom">机房1</span></div>
+        <div>设备SSID：<span class="slot-wss-ssid">356066053</span></div>
+        <div>NEXT设备：<span>无</span></div>
+        <table class="uk-table uk-table-striped">
+            <thead>
+            <tr>
+                <th></th>
+                <th>输入端口</th>
+                <th>输出端口</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th>端口号</th>
+                <td>002</td>
+                <td>014</td>
+            </tr>
+            <tr>
+                <td>是否有光</td>
+                <td>是</td>
+                <td>是</td>
+            </tr>
+            <tr>
+                <td>光功率</td>
+                <td>-10dBm</td>
+                <td>-10dBm</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!--时隙链路图wss-色散补偿设备 结束-->
+
+<!--时隙链路图tbs-lxc设备 开始-->
+<div class="slot-modal-container " uk-grid>
+    <div class="uk-width-1-2">
+        <div>设备1</div>
+        <div class="slot-name">TBS-01</div>
+        <div class="slot-tbs-container">
+            <div class="uk-flex uk-flex-middle uk-flex-around" id="slot-tbs-input-container">
+            </div>
+            <div class="uk-flex uk-flex-middle uk-flex-around" id="slot-tbs-output-container"></div>
+        </div>
+    </div>
+    <div class="uk-width-1-2">
+        <div>设备2</div>
+        <div class="slot-name">LXC-48*48-01</div>
+        <div class="slot-lxc-container" uk-grid>
+            <div class="slot-lxc-io-container uk-flex uk-flex-middle uk-flex-around uk-width-1-2">
+                <div class="slot-lxc-port-container">
+                    <div class="slot-lxc-port-number">1</div>
+                    <div class="slot-lxc-io-port-container uk-flex uk-flex-around uk-flex-middle">
+                        <div class="slot-lxc-port slot-input-color"></div>
+                        <div class="slot-lxc-port slot-output-color"></div>
+                    </div>
+                    <div class="slot-lxc-port-number">2</div>
+                    <div class="slot-lxc-io-port-container uk-flex uk-flex-around uk-flex-middle">
+                        <div class="slot-lxc-port slot-input-color"></div>
+                        <div class="slot-lxc-port slot-output-color"></div>
+                    </div>
+                </div>
+                <div class="slot-lxc-port-container">
+                    <div class="slot-lxc-port-number">1</div>
+                    <div class="slot-lxc-io-port-container uk-flex uk-flex-around uk-flex-middle">
+                        <div class="slot-lxc-port slot-input-color"></div>
+                        <div class="slot-lxc-port slot-output-color"></div>
+                    </div>
+                    <div class="slot-lxc-port-number">2</div>
+                    <div class="slot-lxc-io-port-container uk-flex uk-flex-around uk-flex-middle">
+                        <div class="slot-lxc-port slot-input-color"></div>
+                        <div class="slot-lxc-port slot-output-color"></div>
+                    </div>
+                </div>
+                <div class="slot-lxc-port-container">
+                    <div class="slot-lxc-port-number">1</div>
+                    <div class="slot-lxc-io-port-container uk-flex uk-flex-around uk-flex-middle">
+                        <div class="slot-lxc-port slot-input-color"></div>
+                        <div class="slot-lxc-port slot-output-color"></div>
+                    </div>
+                    <div class="slot-lxc-port-number">2</div>
+                    <div class="slot-lxc-io-port-container uk-flex uk-flex-around uk-flex-middle">
+                        <div class="slot-lxc-port slot-input-color"></div>
+                        <div class="slot-lxc-port slot-output-color"></div>
+                    </div>
+                </div>
+                <div class="slot-lxc-port-container">
+                    <div class="slot-lxc-port-number">1</div>
+                    <div class="slot-lxc-io-port-container uk-flex uk-flex-around uk-flex-middle">
+                        <div class="slot-lxc-port slot-input-color"></div>
+                        <div class="slot-lxc-port slot-output-color"></div>
+                    </div>
+                    <div class="slot-lxc-port-number">2</div>
+                    <div class="slot-lxc-io-port-container uk-flex uk-flex-around uk-flex-middle">
+                        <div class="slot-lxc-port slot-input-color"></div>
+                        <div class="slot-lxc-port slot-output-color"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="uk-width-1-2"></div>
+    <div class="slot-pw-explain-container uk-width-1-2 uk-push-1-2 uk-flex uk-flex-around">
+        <div class="slot-pw-explain-block">
+            <span class="slot-pw-explain-color slot-input-color"></span>
+            <span class="slot-pw-explain-text">输入区</span>
+        </div>
+        <div class="slot-pw-explain-block">
+            <span class="slot-pw-explain-color slot-output-color"></span>
+            <span class="slot-pw-explain-text">输出区</span>
+        </div>
+        <div class="slot-pw-explain-block">
+            <span class="slot-pw-explain-color input-port-active"></span>
+            <span class="slot-pw-explain-text">输入端口</span>
+        </div>
+        <div class="slot-pw-explain-block">
+            <span class="slot-pw-explain-color output-port-active"></span>
+            <span class="slot-pw-explain-text">输出端口</span>
+        </div>
+    </div>
+    <div class="uk-width-1-2 slot-left-table">
+        <div>设备名称：<span>TBS-01</span></div>
+        <div>所属机房：<span class="slot-wss-computerRoom">机房1</span></div>
+        <div>设备SSID：<span class="slot-wss-ssid">356066053</span></div>
+        <div>NEXT设备：<span>LXC-48*48-01</span></div>
+        <table class="uk-table uk-table-striped">
+            <thead>
+            <tr>
+                <th></th>
+                <th>输入端口</th>
+                <th>输出端口</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th>卡槽位</th>
+                <td>11</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <th>AMC卡</th>
+                <td>2</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <th>端口号</th>
+                <td>3</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <th>VC-4</th>
+                <td>8</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <th>VC-12</th>
+                <td>16</td>
+                <td>16</td>
+            </tr>
+            <tr>
+                <th>是否有光</th>
+                <td>是</td>
+                <td>是</td>
+            </tr>
+            <tr>
+                <th>光功率</th>
+                <td>-10dBm</td>
+                <td>-10dBm</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="uk-width-1-2 slot-right-table">
+        <div>设备名称：<span>WSS-01</span></div>
+        <div>所属机房：<span class="slot-wss-computerRoom">机房1</span></div>
+        <div>设备SSID：<span class="slot-wss-ssid">356066053</span></div>
+        <div>NEXT设备：<span>无</span></div>
+        <table class="uk-table uk-table-striped">
+            <thead>
+            <tr>
+                <th></th>
+                <th>输入端口</th>
+                <th>输出端口</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th>端口号</th>
+                <td>002</td>
+                <td>014</td>
+            </tr>
+            <tr>
+                <th>是否有光</th>
+                <td>是</td>
+                <td>是</td>
+            </tr>
+            <tr>
+                <th>光功率</th>
+                <td>-10dBm</td>
+                <td>-10dBm</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!--时隙链路图tbs-lxc设备 结束-->
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="uikit/js/uikit.js"></script>
+<script src="uikit/js/uikit-icons.js"></script>
+<script src="js/app.js"></script>
+</html>
